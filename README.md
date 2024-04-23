@@ -29,5 +29,7 @@ Here the output is produced through the communication between the publisher and 
     <br>
   The publisher and the subscriber are connected through the message broker (AMQP server). It conveys messages to the subscriber after receiving them from the publisher.
   Even in the event that the publisher and subscriber are not operating concurrently, it guarantees that messages are consistently sent from the publisher to the subscriber.
-
+### RabbitMQ Chart
+![img_2.png](img_2.png)
+The change in graph is caused when we run the publisher to interact with the subscriber, it mainly occurs when the subscriber received the data sent from the publisher, in this case it is the user created message. The spike is caused mainly due to the size of the data, here our publisher will send out 5 user created data batch at once, this causes the sudden spike compared to when the subscriber has not received anything. Additionally, in the graph picture there is a period where it stayed still at the `1.0/s` threshold, that is caused because I tried to run the publisher over and over again in a short interval.
     
