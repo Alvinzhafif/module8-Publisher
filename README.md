@@ -32,4 +32,6 @@ Here the output is produced through the communication between the publisher and 
 ### RabbitMQ Chart
 ![img_2.png](img_2.png)
 The change in graph is caused when we run the publisher to interact with the subscriber, it mainly occurs when the subscriber received the data sent from the publisher, in this case it is the user created message. The spike is caused mainly due to the size of the data, here our publisher will send out 5 user created data batch at once, this causes the sudden spike compared to when the subscriber has not received anything. Additionally, in the graph picture there is a period where it stayed still at the `1.0/s` threshold, that is caused because I tried to run the publisher over and over again in a short interval.
-    
+### Slow Subscriber Simulation
+![img_4.png](img_4.png)
+The amount of queue message in my case here is 31, this is caused because we set the subscriber to delay the thread by ten millisecond. Such that when massive amount of events or in this case we run the publisher multiple times, some packet would fall into the queueing list. The amount of queue in total can vary as well depending on how many times we run the publisher program.
